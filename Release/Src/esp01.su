@@ -1,0 +1,15 @@
+core_cm0plus.h:846:22:NVIC_SystemReset	0	static,ignoring_inline_asm
+esp01.c:29:6:clean_rx_buffer	8	static
+esp01.c:34:6:disable_passthrough	8	static
+esp01.c:55:6:save_device_id	0	static
+esp01.c:65:6:esp_send_data	16	static
+esp01.c:59:6:pair_device	32	static
+esp01.c:75:7:search_rx_buffer	8	static
+esp01.c:79:6:esp_wait_for_response	16	static
+esp01.c:41:6:enable_passthrough	8	static
+esp01.c:49:6:connect_to_server	8	static
+esp01.c:86:6:set_esp_status	8	static
+esp01.c:98:6:esp_initialize	8	static
+esp01.c:116:6:esp_wps	8	static
+esp01.c:124:6:esp_check_connection	8	static
+esp01.c:134:6:esp_uart_callback	8	static
