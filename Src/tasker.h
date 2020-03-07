@@ -15,6 +15,8 @@ typedef struct TaskElement *Task;
 
 
 Task task_make(uint32_t interval_ms, taskFuncptr);
+void task_destroy(Task task);
+
 void task_change(Task, uint32_t);
 void task_reset(Task);
 void task_stop(Task);

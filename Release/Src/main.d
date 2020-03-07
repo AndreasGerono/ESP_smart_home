@@ -16,6 +16,8 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_gpio_ex.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_dma.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h \
+ ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_adc.h \
+ ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_adc_ex.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_flash.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_flash_ex.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_flash_ramfunc.h \
@@ -26,9 +28,9 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_tim.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_tim_ex.h \
  ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart.h \
- ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h ../Inc/dma.h \
- ../Inc/main.h ../Inc/tim.h ../Inc/usart.h ../Inc/gpio.h ../Src/esp01.h \
- ../Src/tasker.h
+ ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h ../Inc/adc.h \
+ ../Inc/main.h ../Inc/dma.h ../Inc/tim.h ../Inc/usart.h ../Inc/gpio.h \
+ ../Src/esp01.h ../Src/tasker.h ../Src/t_sensor.h
 
 ../Inc/main.h:
 
@@ -66,6 +68,10 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_cortex.h:
 
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_adc.h:
+
+../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_adc_ex.h:
+
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_flash.h:
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_flash_ex.h:
@@ -88,9 +94,11 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
 
 ../Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal_uart_ex.h:
 
-../Inc/dma.h:
+../Inc/adc.h:
 
 ../Inc/main.h:
+
+../Inc/dma.h:
 
 ../Inc/tim.h:
 
@@ -101,3 +109,5 @@ Src/main.o: ../Src/main.c ../Inc/main.h \
 ../Src/esp01.h:
 
 ../Src/tasker.h:
+
+../Src/t_sensor.h:

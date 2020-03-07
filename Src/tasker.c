@@ -42,6 +42,7 @@ void task_reset(Task task) {
 }
 
 void task_stop(Task task){
+	task->lastTick = HAL_GetTick();
 	task->active = RESET;
 }
 

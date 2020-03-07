@@ -20,6 +20,7 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "adc.h"
 #include "dma.h"
 #include "tim.h"
 #include "usart.h"
@@ -29,6 +30,7 @@
 /* USER CODE BEGIN Includes */
 #include "esp01.h"
 #include "tasker.h"
+#include "t_sensor.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -48,7 +50,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-uint8_t counter = 0;
+uint32_t counter = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -61,7 +63,11 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 	}
 }
 
-
+void sendTemp(){
+	if (esp_ready()){
+		esp_send_data(sensor_getTemp());
+	}
+}
 
 /* USER CODE END PFP */
 
@@ -101,12 +107,27 @@ int main(void)
   MX_TIM6_Init();
   MX_USART1_UART_Init();
   MX_DMA_Init();
+  MX_ADC_Init();
   /* USER CODE BEGIN 2 */
+
+
   LD2_GPIO_Port->BSRR = LD2_Pin;
-  ESP_PWR_GPIO_Port->BSRR = ESP_PWR_Pin;	//enable ESP
-  esp_initialize(71);
+
+
+  esp_power_on();
+  esp_set_id(53);
+  esp_initialize();
+
   Task esp_check_task = task_make(2000, esp_check_connection);
+  Task wps_task = task_make(5000, esp_wps);
+  Task send_temp_task = task_make(2033, sendTemp);
+
+
   task_start(esp_check_task);
+  task_start(send_temp_task);
+
+  sensor_init();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -116,10 +137,18 @@ int main(void)
 
 
 	  if (!HAL_GPIO_ReadPin(BTN1_GPIO_Port, BTN1_Pin)){
-		  esp_wps();
+		  task_start(wps_task);
+	  }
+	  else{
+		  task_stop(wps_task);
 	  }
 
+
+	  task_state(wps_task, NULL);
 	  task_state(esp_check_task, NULL);
+	  task_state(send_temp_task, NULL);
+
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

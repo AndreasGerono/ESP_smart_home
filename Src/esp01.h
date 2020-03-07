@@ -27,10 +27,16 @@
 
 void esp_send_data(const char*);
 void esp_uart_callback();
-void esp_initialize(uint32_t device_id);
+void esp_initialize();
 void esp_check_connection();
-void esp_wait_for_response(const char* response, uint16_t timeout_ms);
 void esp_wps();
+void esp_restore();
+
+void esp_set_id(uint32_t id);
+void esp_power_on();
+_Bool esp_parse_value(uint32_t *value);
+_Bool esp_ready();
+
 
 
 

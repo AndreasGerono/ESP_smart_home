@@ -2,6 +2,6 @@ tasker.c:15:6:task_make	16	static
 tasker.c:26:6:task_change	0	static
 tasker.c:30:7:task_state	16	static
 tasker.c:40:6:task_reset	8	static
-tasker.c:44:6:task_stop	0	static
-tasker.c:48:6:task_start	0	static
-tasker.c:52:6:task_destroy	8	static
+tasker.c:44:6:task_stop	8	static
+tasker.c:49:6:task_start	0	static
+tasker.c:53:6:task_destroy	8	static
